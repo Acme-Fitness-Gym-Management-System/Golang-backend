@@ -14,15 +14,9 @@ docker images
 docker ps
 
 
-// to run one specific command inside a container 
-
-docker exec -it container_name command
-
-docker exec -it postgres /bin/sh or
-
 docker exec -it postgres psql -U root
 
-docker logs container_name -->display logs of the container
+
 
 
 
@@ -63,9 +57,6 @@ import (
         } 
 
 ```
-- Migrate reads migrations from sources and applies them in correct order to a database.
-- Drivers are "dumb", migrate glues everything together and makes sure the logic is bulletproof. (Keeps the drivers lightweight, too.)
-- Database drivers don't assume things or try to correct user input. When in doubt, fail.
 - ``` migrate -help ```
 - Create a Schema up and down files  ```  migrate create -ext sql -dir db/migration gym-backendsql  ```
 - Create db using make createdb
@@ -81,11 +72,8 @@ or
 <br>
 go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
 
-sqlc init to init the sqlc.yaml file
-sqlc generate to generate the code or add it to make file and use make generate
-
-
-``` *** Postgres Isolation levels```
+sqlc init 
+```sqlc generate``` to generate the code or add it to make file and use make generate
 
 
 Get Gin using ``` go get -u github.com/gin-gonic/gin```
@@ -112,17 +100,12 @@ github.com/spf13/viper
 
 Multi stage dockerfile 
 
-docker rm gymbackend
-docker rmi gymbackend
 
 docker build -t gymbackend:latest .    
-docker run --name gymbackend -p 8080:8080 gymbackend:latest
 docker run --name gymbackend -p 8080:8080 jaswanthk1/gym-backend:latest
 
 docker container inspect postgres
 docker container inspect gymbackend
-
-
 docker network inspect bridge
 
 docker network create gym-network
@@ -132,14 +115,6 @@ docker container inspect postgres
 
 docker run --name gymbackend --network bank-network -p 8080:8080 -e DB_SOURCE="postgresql://root:secret@postgres:5432/simple_bank?sslmode=disable" gymbackend:latest
 
-
-docker compose up
-docker compose down
-docker rmi gym-backend_api
-
-
-chmod +x start.sh
-chmod +x wait-for.sh
 
 
 
@@ -154,15 +129,9 @@ go run main.go
 ## Swagger 
 
 install swagger cmd
-
-
 go get -u github.com/swaggo/files
 go get -u github.com/swaggo/gin-swagger
 
-add router docs swagger
-add annotations swagger in main function
-swag init
-add annotations to controller 
 
 ## AWS Github Actions
 
