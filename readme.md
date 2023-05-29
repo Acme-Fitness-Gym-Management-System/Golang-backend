@@ -113,7 +113,7 @@ docker network connect gym-network postgres
 docker network inspect gym-network
 docker container inspect postgres
 
-docker run --name gymbackend --network bank-network -p 8080:8080 -e DB_SOURCE="postgresql://root:secret@postgres:5432/simple_bank?sslmode=disable" gymbackend:latest
+docker run --name gymbackend --network bank-network -p 8080:8080 -e DB_SOURCE="postgresql://root:secret@postgres:5432/gym?sslmode=disable" gymbackend:latest
 
 
 
