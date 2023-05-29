@@ -96,7 +96,7 @@ go get github.com/lib/pq
 github.com/spf13/viper
 
 
-## Deploying
+## 4 Deploying
 
 Multi stage dockerfile 
 
@@ -118,7 +118,7 @@ docker run --name gymbackend --network bank-network -p 8080:8080 -e DB_SOURCE="p
 
 
 
-## Gin -- 
+## 5 Gin -- 
 
 github.com/gin-gonic/gin
 viper for config
@@ -126,16 +126,17 @@ viper for config
 go run main.go
 
 
-## Swagger 
+## 6 Swagger 
 
 install swagger cmd
 go get -u github.com/swaggo/files
 go get -u github.com/swaggo/gin-swagger
 
 
-## AWS Github Actions
+## 7 AWS Github Actions
 
-AWS IAM
+- Update AWS IAM roles in Github secrets.
+- Docker image is pushed to ECS f
 
 
 
